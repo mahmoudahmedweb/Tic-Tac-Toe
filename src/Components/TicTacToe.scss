@@ -1,0 +1,126 @@
+.tictactoe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  h1 {
+    color: #343a40;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 120px));
+  grid-template-rows: repeat(3, minmax(80px, 120px));
+  gap: 8px;
+  margin-bottom: 2rem;
+  background-color: #343a40;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #343a40;
+
+  &:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  &.winner {
+    background-color: #28a745;
+    color: white;
+    animation: pulse 0.5s ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+.result {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #343a40;
+  text-align: center;
+  min-height: 2rem;
+}
+
+.reset {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #343a40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: #495057;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 58, 64, 0.3);
+  }
+}
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(3, minmax(60px, 80px));
+    grid-template-rows: repeat(3, minmax(60px, 80px));
+  }
+
+  .cell {
+    font-size: 2rem;
+  }
+}
