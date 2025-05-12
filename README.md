@@ -47,7 +47,7 @@ To run the project locally:
 
 ```bash
 git clone https://github.com/mahmoudahmedweb/Tic-Tac-Toe.git
-cd react-tic-tac-toe
+cd Tic-Tac-Toe
 npm install
 npm run dev
 ```
